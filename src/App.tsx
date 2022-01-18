@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./components/card";
+import { useState, useEffect } from "react";
+import { PhotoType } from "./interfaces";
+import axios from "axios";
+
+const apiKey = "3VyHM1tGyfOh7MBtf0RCKQTDJPxE7Vqt7cJfcyYh";
 
 function App() {
+  const [photos, setPhotos] = useState<PhotoType[]>([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=4`)
+      .then((res) => setPhotos(res.data));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {photos.map((photo) => {
+        return (
+          <div className="flex justify-center mt-10">
+            <Card photo={photo} />
+          </div>
+        );
+      })}
     </div>
   );
 }
