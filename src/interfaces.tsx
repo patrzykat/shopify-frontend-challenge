@@ -1,4 +1,4 @@
-export interface PhotoType {
+export interface PostType {
     copyright: string,
     date: string,
     explanation: string,

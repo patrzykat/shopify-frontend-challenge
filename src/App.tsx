@@ -1,23 +1,32 @@
 import "./App.css";
-import Card from "./components/card";
 import { useState, useEffect } from "react";
-import { PhotoType } from "./interfaces";
+import { PostType } from "./interfaces";
 import axios from "axios";
-
-const apiKey = "3VyHM1tGyfOh7MBtf0RCKQTDJPxE7Vqt7cJfcyYh";
+import ChooseDate from "./components/chooseDate";
+import dateToString from "./helpers/dateToString";
+import addDays from "./helpers/addDays";
+import Card from "./components/card";
 
 function App() {
-  const [photos, setPhotos] = useState<PhotoType[]>([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
+  const [date, setDate] = useState<Date>(new Date(2022, 0, 1));
 
   useEffect(() => {
+    const baseURL = "https://api.nasa.gov/planetary/apod";
+    const apiKey = "3VyHM1tGyfOh7MBtf0RCKQTDJPxE7Vqt7cJfcyYh";
+    const startDate = dateToString(date);
+    const endDate = dateToString(addDays(date, 7));
     axios
-      .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=4`)
-      .then((res) => setPhotos(res.data));
-  }, []);
+      .get(
+        `${baseURL}?api_key=${apiKey}&start_date=${startDate}&end_date=${endDate}`
+      )
+      .then((res) => setPosts(res.data));
+  }, [date]);
 
   return (
     <div className="App">
-      {photos.map((photo) => {
+      <ChooseDate date={date} setDate={setDate} />
+      {posts.map((photo) => {
         return (
           <div className="flex justify-center mt-10">
             <Card photo={photo} />
