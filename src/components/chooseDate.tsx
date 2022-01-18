@@ -1,7 +1,8 @@
-import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
+import { ChooseDatePropType } from "../interfaces";
+import "react-datepicker/dist/react-datepicker.css";
 
-export default function ChooseDate({ date, setDate }: any) {
+export default function ChooseDate({ date, setDate }: ChooseDatePropType) {
   return (
     <div className="flex justify-center mt-10">
       <div className="flex">

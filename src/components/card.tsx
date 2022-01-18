@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { PostType } from "../interfaces";
 import avatar from "../img/space-guy.jpg";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 export default function Card({ photo }: { photo: PostType }) {
   const [isLiked, setIsLiked] = useState<boolean>(false);
