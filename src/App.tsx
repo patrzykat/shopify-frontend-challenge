@@ -9,7 +9,7 @@ import "./App.css";
 
 function App() {
   const [posts, setPosts] = useState<PostType[]>([]);
-  const [date, setDate] = useState<Date>(new Date(2022, 0, 1));
+  const [date, setDate] = useState<Date>(new Date(2000, 0, 1));
 
   useEffect(() => {
     const baseURL = "https://api.nasa.gov/planetary/apod";
