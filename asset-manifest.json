@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/shopify-frontend-challenge/static/css/main.f786d612.css",
+    "main.js": "/shopify-frontend-challenge/static/js/main.5a861461.js",
+    "static/js/787.e0b99c2a.chunk.js": "/shopify-frontend-challenge/static/js/787.e0b99c2a.chunk.js",
+    "static/media/space-guy.jpg": "/shopify-frontend-challenge/static/media/space-guy.186cf82c93ecdb7994be.jpg",
+    "index.html": "/shopify-frontend-challenge/index.html",
+    "main.f786d612.css.map": "/shopify-frontend-challenge/static/css/main.f786d612.css.map",
+    "main.5a861461.js.map": "/shopify-frontend-challenge/static/js/main.5a861461.js.map",
+    "787.e0b99c2a.chunk.js.map": "/shopify-frontend-challenge/static/js/787.e0b99c2a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f786d612.css",
+    "static/js/main.5a861461.js"
+  ]
+}
